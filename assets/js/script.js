@@ -42,3 +42,10 @@ function startQuiz() {
     clockTimer();
     setNextQuestion;
 };
+
+function setNextQuestion () {
+    resetState();
+    showQuestion(QuestionsSuffled[currentQuestionsIndex]);
+};
+
+
