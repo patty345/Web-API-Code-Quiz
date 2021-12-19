@@ -18,3 +18,27 @@ var scores = JSON.parse(localStorage.getItem("scores")) || [];
 
 var QuestionsSuffled, currentQuestionsIndex;
 
+startButton.addEventListener("click", startQuiz);
+nextButton.addEventListener("click", () => {
+    currentQuestionsIndex++
+    setNextQuestion()
+});
+
+function clockTimer() {
+    timeLeft--;
+    timerEl.textContent = "Time: " + timeLeft;
+    if (timeLeft <= 0) {
+        saveScore();  
+      }
+}
+
+function startQuiz() {
+    timerID = setInterval(clockTimer, 1000);
+    startContainerEl.classList.add("hide");
+    QuestionsSuffled = questions.sort(() => Math.random() - .5)
+    currentQuestionsIndex = 0
+    questionContainerEl.classList.remove("hide");
+
+    clockTimer();
+    setNextQuestion;
+};
