@@ -18,19 +18,30 @@
     </header>
 
     <section id="initalize-container" class="initalize-quiz">
-      <h1>Welcome to Country Music Quiz Challange </h1>
+      <h1>Welcome to Country Music Quiz Challange</h1>
 
       <p>
-        You have 75 seconds to try to get the highest score by answering 5 questions about country music. Incorrect answers will
-        penalize your time by ten seconds. Your total score will be your time after you answer the last question. Click start whe you are ready.
+        You have 75 seconds to try to get the highest score by answering 5
+        questions about country music. Incorrect answers will penalize your time
+        by ten seconds. Your total score will be your time after you answer the
+        last question. Click start whe you are ready.
       </p>
 
       <div class="controls">
         <button id="btn-start" class="btn start">Start Quiz</button>
       </div>
-
     </section>
 
+    <section id="highscores" class="highscores-container hide">
+      <div id="high-scores">
+        <h1 class="centered">Leaderboard</h1>
+        <div id="highscore" class="highscore highscore-list"></div>
+        <div class="controls">
+          <button id="btn-restart">Restart</button>
+          <button id="btn-clear">Clear Scores</button>
+        </div>
+      </div>
+    </section>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
