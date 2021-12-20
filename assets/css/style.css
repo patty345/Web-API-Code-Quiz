@@ -34,17 +34,17 @@ header {
   margin: 25px 0;
 }
 
-.btnHeader,
-.timeLeft {
+.scores a,
+.timer {
   font-size: 20px;
 }
 
-.btnHeader {
+.scores a {
   color: var(--secondary-color);
   cursor: pointer;
 }
 
-.btnHeader button:hover {
+.scores a:hover {
   color: var(--tertiary-color);
 }
 
