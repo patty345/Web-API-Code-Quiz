@@ -172,4 +172,14 @@ function showHighScores(initials) {
   }
 
   localStorage.setItem("scores", JSON.stringify(scores));
-}
+};
+
+viewHighScores.addEventListener("click", showHighScores);
+
+submitButton.addEventListener("click", function (event) {
+    event.preventDefault()
+    var initials = document.querySelector("#initials-field").value;
+    showHighScores(initials);
+});
+
+
