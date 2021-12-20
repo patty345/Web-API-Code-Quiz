@@ -113,3 +113,34 @@ function clearStatusClass(element) {
 };
 
 
+function saveScore() {
+    clearInterval(timerID);
+    timerEl.textContent = "Time: " + timeLeft;
+    setTimeout(function () {
+        questionContainerEl.classList.add("hide");
+        document.getElementById("score-container").classList.remove("hide");
+        document.getElementById("your-score").textContent = "Your final score is " + timeLeft;
+    }, 2000)
+};
+
+var loadScores = function () {
+    if (!savedScores) {
+        return false;
+    }
+
+    savedScores = JSON.parse(savedScores);
+    var initials = document.querySelector("#initials-field").value;
+    var newScore = {
+        score: timeLeft,
+        initials: initials
+    }
+
+    savedScores.push(newScore);
+    console.log(savedScores)
+
+    savedScores.forEach(score => {
+        initialsField.innerText = score.initials
+        scoreField.innerText = score.score
+    })
+};
+
