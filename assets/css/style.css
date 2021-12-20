@@ -34,12 +34,12 @@ header {
   margin: 25px 0;
 }
 
-.btnHeader button,
+.btnHeader ,
 .timeLeft {
   font-size: 20px;
 }
 
-.btnHeader button {
+.btnHeader  {
   color: var(--secondary-color);
   cursor: pointer;
 }
@@ -64,3 +64,39 @@ h2 {
     text-align: center;
 }
 
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    width: auto;
+    overflow: visible;
+    padding: 10px;
+    background-color: var(--primary-color);
+    border-radius: 10px;    
+    font-size: large;
+    margin: 10px;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+.hide {
+    display: none;
+}
+
+.btn.correct {
+    background-color: var(--correct-color);
+}
+
+.btn.wrong {
+    background-color: var(--tertiary-color);
+}
