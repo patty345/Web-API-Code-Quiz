@@ -95,52 +95,81 @@ function selectAnswer(e) {
     startButton.classList.remove("hide");
     saveScore();
   }
-};
+}
 
 function setStatusClass(element, correct) {
-    clearStatusClass(element)
-    if (correct) {
-        element.classList.add("correct");
-
-    } else {
-        element.classList.add("wrong");
-    }
-};
+  clearStatusClass(element);
+  if (correct) {
+    element.classList.add("correct");
+  } else {
+    element.classList.add("wrong");
+  }
+}
 
 function clearStatusClass(element) {
-    element.classList.remove("correct");
-    element.classList.remove("wrong");
-};
-
+  element.classList.remove("correct");
+  element.classList.remove("wrong");
+}
 
 function saveScore() {
-    clearInterval(timerID);
-    timerEl.textContent = "Time: " + timeLeft;
-    setTimeout(function () {
-        questionContainerEl.classList.add("hide");
-        document.getElementById("score-container").classList.remove("hide");
-        document.getElementById("your-score").textContent = "Your final score is " + timeLeft;
-    }, 2000)
-};
+  clearInterval(timerID);
+  timerEl.textContent = "Time: " + timeLeft;
+  setTimeout(function () {
+    questionContainerEl.classList.add("hide");
+    document.getElementById("score-container").classList.remove("hide");
+    document.getElementById("your-score").textContent =
+      "Your final score is " + timeLeft;
+  }, 2000);
+}
 
 var loadScores = function () {
-    if (!savedScores) {
-        return false;
-    }
+  if (!savedScores) {
+    return false;
+  }
 
-    savedScores = JSON.parse(savedScores);
-    var initials = document.querySelector("#initials-field").value;
-    var newScore = {
-        score: timeLeft,
-        initials: initials
-    }
+  savedScores = JSON.parse(savedScores);
+  var initials = document.querySelector("#initials-field").value;
+  var newScore = {
+    score: timeLeft,
+    initials: initials,
+  };
 
-    savedScores.push(newScore);
-    console.log(savedScores)
+  savedScores.push(newScore);
+  console.log(savedScores);
 
-    savedScores.forEach(score => {
-        initialsField.innerText = score.initials
-        scoreField.innerText = score.score
-    })
+  savedScores.forEach((score) => {
+    initialsField.innerText = score.initials;
+    scoreField.innerText = score.score;
+  });
 };
 
+function showHighScores(initials) {
+  document.getElementById("highscores").classList.remove("hide");
+  document.getElementById("score-container").classList.add("hide");
+  startContainerEl.classList.add("hide");
+  questionContainerEl.classList.add("hide");
+  if (typeof initials == "string") {
+    var score = {
+      initials,
+      timeLeft,
+    };
+    scores.push(score);
+  }
+
+  var highScoreEl = document.getElementById("highscore");
+  highScoreEl.innerHTML = "";
+
+  for (i = 0; i < scores.length; i++) {
+    var div1 = document.createElement("div");
+    div1.setAttribute("class", "name-div");
+    div1.innerText = scores[i].initials;
+    var div2 = document.createElement("div");
+    div2.setAttribute("class", "score-div");
+    div2.innerText = scores[i].timeLeft;
+
+    highScoreEl.appendChild(div1);
+    highScoreEl.appendChild(div2);
+  }
+
+  localStorage.setItem("scores", JSON.stringify(scores));
+}
