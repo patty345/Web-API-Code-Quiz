@@ -183,3 +183,11 @@ submitButton.addEventListener("click", function (event) {
 });
 
 
+restartButton.addEventListener("click", function () {
+    window.location.reload();
+});
+
+clearScoreButton.addEventListener("click", function () {
+    localStorage.clear();
+    document.getElementById("highscore").innerHTML = "";
+});
