@@ -100,3 +100,30 @@ button:hover {
 .btn.wrong {
     background-color: var(--tertiary-color);
 }
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.highscore {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.name-div, .score-div {
+    flex: 1 35%;
+    padding: 10px 0;
+    border: 1px solid var(--correct-color);
+}
